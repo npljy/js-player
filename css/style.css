@@ -1,0 +1,709 @@
+/* 头部 */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow: hidden;
+}
+img{
+    vertical-align: middle;
+}
+/* .mainPage{
+    overflow: hidden;
+} */
+.header{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: #2c323b;
+    z-index: 999;
+}
+
+/* 内容 */
+.content{
+    position: relative;
+    width: 100%; 
+    height: 915px;
+    overflow: hidden;
+    background-color: #000;
+    background-size: cover;
+}
+.songMain{
+    position: absolute;
+    left: 25%;
+    width: 840px;
+    margin-top: 5%;
+    z-index: 100;
+}
+
+.album{
+    width: 262px;
+    float: left;
+}
+.albumImg {
+    border-radius: 130px;
+    overflow: hidden;
+}
+@-webkit-keyframes rotation{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+.Rotation{
+    -webkit-transform: rotate(360deg);
+    animation: rotation 15s linear infinite;
+    -moz-animation: rotation 15s linear infinite;
+    -webkit-animation: rotation 15s linear infinite;
+    -o-animation: rotation 15s linear infinite;
+}
+.albumDown{
+    margin-top: 40px;
+    padding-left: 16px;
+}
+.albumDown a {
+    display: block;
+    width: 230px;
+    height: 50px;
+    background: url(../imgs/downlaod_bg.png) no-repeat;
+}
+.albumDown a:hover{
+    background-position: -231px 0;
+}
+.songCont{
+    width: 460px;
+    min-height: 580px;
+    margin-left: 116px;
+    float: left;
+}
+.songName span{
+    float: left;
+    max-width: 460px;
+    font-size: 24px;
+    color: #fff;
+}
+.songInfo{
+    margin-top: 10px;
+    color: #fff;
+
+}
+
+.songInfo span{
+    opacity: .6;
+    filter: alpha(opacity=60 );
+    color: #fff;
+}
+.albumName,.singerName{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 225px;
+    height: 24px;
+    float: left;
+    text-overflow: ellipsis;
+}
+.songLrc{
+    width: 460px;
+    height: 100%;
+    margin-top: 18px;
+}
+.songContainer{
+    position: relative;
+    overflow: hidden;
+    width: 460px;
+    height: 490px;
+}
+.songPanel{
+    position: absolute;
+    width: 460px;
+    color: #fff;
+    opacity: .6;
+    filter: alpha(opacity=60 );  
+    transition: 1s;  
+}
+.songPanel p{
+    width: 420px;
+    height: 34px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center; /* 歌词居中 */
+}
+
+.songBar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+}
+.barContainer{
+    position: relative;
+    height: 100%;
+    width: 8px;
+}
+.dragBar{
+    position: absolute;
+    width: 8px;
+    height: 90px;
+    background: #fff;
+    opacity: .2;
+    filter: alpha(opacity=20); 
+    border-radius: 8px;  
+}
+.blurMask{
+    position: absolute;
+    width: 100%;
+    height: 915px;
+    background-color: rgba(0,0,0,.5);
+    z-index: 10;
+    opacity: .6;
+    filter: alpha(opacity=60);
+}
+.blurbg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    -webkit-filter: blur(90px);
+    -moz-filter:blur(90px);
+    -ms-filter: blur(90px);
+    filter: blur(90px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 915px;
+    width: 100%;
+}
+/* 脚步 */
+.footer{
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    min-width: 940px;
+    height: 80px;  
+}
+.playerMask{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #000;
+    opacity: .3;
+    filter:alpha(opacity=30);
+    box-shadow: 0 -10px 20px #403f3f;
+}
+.plyar{
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+}
+.plyar div{
+    height: 80px;
+    display: inline-block;
+    position: absolute;
+}
+.playerBtn{
+    width: 160px;
+}
+#prev,#next{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    margin-top: 22px;
+}
+#prev{
+    background: url(../imgs/btn.png) no-repeat;
+    background-position:  0 -143px;
+}
+#prev:hover{
+    background-position:  -36px -143px;
+}
+#next{
+    background: url(../imgs/btn.png) no-repeat;
+    background-position:  -144px -143px;
+    right: 0;
+}
+#next:hover{
+    background-position:  -180px -143px;
+}
+#toggle{
+    left: 50px;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+    background: url(../imgs/btn.png) no-repeat;
+    background-position:  0 0;
+}
+#toggle:hover{
+    background-position:  -60px 0;
+}
+#toggle.play{
+    background-position:  0 -60px !important;
+}
+#toggle.play:hover{
+    background-position:  -60px -60px !important;
+}
+.playerImg{
+    margin-left: 190px;
+    margin-top: 10px;
+    width: 60px;
+}
+.playerProgress{
+    margin-left: 270px;
+    width: 370px;
+}
+.playerProgress div{
+    position: relative;
+}
+.plyar .barInfo{
+    width: 370px;
+    height: 24px;
+    margin-top: 18px;
+}
+.plyar .bar{
+    width: 370px;
+    height: 12px;
+    margin-top: 10px;
+}
+.playerControl{
+    margin-left: 690px;
+    width: 300px;
+}
+.playerControl .volume {
+    position: relative;
+    width: 16px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.volume  span{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    bottom: 0;
+    background: url(../imgs/btn.png) no-repeat;
+    background-position: -64px -195px;
+   
+}
+.mode span{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    bottom: 0;
+    background: url(../imgs/btn.png) no-repeat;
+    background-position: -64px -179px;  
+}
+
+.download span{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    bottom: 0;
+    background: url(../imgs/btn.png) no-repeat;
+    background-position: -8px -123px;
+}
+.share span{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    bottom: 0;
+    background-position: -240px 0;
+}
+.playerControl .volumePanel{
+    width: 30px;
+    height: 116px;
+    z-index: 30;
+    position: absolute;
+    bottom: 79px;
+    left: -7px;
+    background: #555;
+    display: none;
+}
+.volumePanel .volumeBar{
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    border-radius: 5px;
+    width: 6px;
+    height: 100px;
+    background: skyblue;
+}
+.volumePanel .currentVol{
+    width: 6px;
+    height: 50%;
+    left: 12px;
+    top: 8px;
+    /* border-radius: 6px; */
+    background: #666;
+}
+.volumePanel .volumeLong{
+    position: absolute;
+    width: 30px;
+    height: 100px;
+    top: 8px;
+}
+.volumePanel .volumeDot{
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    top: 50%;
+    z-index: 20;
+    cursor: pointer;
+}
+.volumePanel .volumeDot span{
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    left: 10px;
+    z-index: 21;
+    background: url(../imgs/btn.png) no-repeat -242px -130px;
+}
+.volumePanel .volumeClick{
+    position: absolute;
+    width: 30px;
+    height: 100px;
+    top: 8px;
+    z-index: 10;
+    cursor: pointer;
+}
+.playerControl .mode {
+    position: relative;
+    width: 16px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer; 
+}
+.playerControl div.modePanel ul{
+    padding-top: 10px;
+    font-size: 14px;
+}
+.playerControl div.modePanel {
+    text-align: center;
+    width: 120px;
+    height: 116px;
+    z-index: 30;
+    position: absolute;
+    bottom: 79px;
+    left: 0;
+    background:url(../imgs/mode.png) no-repeat;
+    display: none;
+}
+.playerControl div.modePanel li{
+    list-style: none;
+    line-height: 30px;
+    height: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+.playerControl div.modePanel li.act{
+    color: skyblue;
+}
+.playerControl div.modePanel li i{  
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 7px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.modePanel li.sx i.act{
+    background: url(../imgs/btn.png) -96px -179px; 
+}
+.modePanel li.lo i.act{
+    background: url(../imgs/btn.png) -32px -179px;
+}
+.modePanel li.sj i.act{
+    background: url(../imgs/btn.png) -160px -179px;
+}
+
+.modePanel .sx i{
+    background: url(../imgs/btn.png) -64px -179px;
+    /* -96px -179px */
+}
+.modePanel .lo i{
+    background: url(../imgs/btn.png) 0 -179px;
+    /* -32px -179px; */
+}
+.modePanel .sj i{
+    background: url(../imgs/btn.png) -128px -179px;
+    /* -160px -179px */
+}
+
+.playerControl .download {
+    position: relative;
+    width: 16px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer; 
+}
+.playerControl .share {
+    position: relative;
+    width: 16px;
+    height: 50px;
+    cursor: pointer; 
+    color: #fff;
+}
+.plyar div.playerList{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: 24px;
+    bottom: 100px;
+    /* display: none; */
+    background:#2f343b;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.playerList ul{
+    margin-top: 30px;
+}
+.playerList li{
+    list-style: none;
+    width: 380px;
+    height: 50px;
+    line-height: 50px;
+    color: #19b5f0;
+    border-bottom: 1px solid #42484e;
+}
+.playerList li.act{
+    background: #40444b;
+}
+.playerList li span{
+    display: inline-block;
+    text-align: center;
+    width: 50px;
+    cursor: pointer;
+}
+.playerList li span.song{
+    display: inline-block;
+    width: 160px;
+    text-align: left;
+    padding-left: 15px;
+}
+div.listHead{
+    width: 360px;
+    height: 40px;
+    color: #86898e;
+}
+.listHead span:first-child{
+    float: left;
+}
+.listHead span:last-child{
+    float: right;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: url(../imgs/btn.png) no-repeat -240px -96px;
+}
+.playerProgress .infoName{
+    width: 230px;
+    height: 24px;
+}
+.barName{
+    color: #c4c3c3;
+}
+.playerProgress .infoTime{
+    height: 24px;
+}
+.playerProgress .duration{
+    height: 24px;
+    color: #fff;
+    opacity: .4;
+    filter:alpha(opacity=40);
+}
+.playerProgress .barLong{
+    height: 3px;
+    width: 370px;
+    background: #666;
+    top: 4px;
+}
+
+.playerProgress .barCurTime{
+    height: 3px;
+    /* width: 200px; */
+    background: blue;
+    top: 4px;
+}
+.playerControl .listBtn{
+    position: relative;
+    width: 60px;
+    height: 23px;
+    margin-left: 30px;
+    top: 4px;
+    cursor: pointer;
+    color:#fff;
+    background: url(../imgs/btn.png) no-repeat 0 -120px;
+}
+.playerControl .listBtn :hover{
+    color: #19b5f0;
+    background-position:  -61px -120px;
+}
+.playerControl .listBtn span{
+    position: absolute;
+    display: inline-block;
+    left: 32px; 
+}
+
+#bar div{
+    position: absolute;
+}
+#bar .barControl{
+    height: 10px;
+    width: 370px;
+    background: #000;
+    top: 4px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+}
+#bar .barDot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url(../imgs/btn.png) no-repeat;
+    background-position: -217px -181px;
+    z-index: 20;
+    border-radius: 10px;
+    cursor: pointer;
+    left: 0;
+    /* margin-left: 52%; */
+}
+
+#bar .barDot:hover{
+    background-position: -238px -181px;
+}
+
+.music{
+    display: none;
+}
+/* 清除浮动 */
+.clear{
+    zoom:1;
+}
+.clear::after{
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.box-list div{
+    height: auto;
+    display: inherit;
+    position: relative;
+}
+/* xc ↓ */
+/*列表框*/
+ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.fl{
+    float: left;
+}
+.icon {
+    display: block;
+    cursor: pointer;
+    background: url(../imgs/btn.png);
+    background-repeat: no-repeat;
+}
+.list-btn{
+    visibility: hidden;
+}
+#list{
+	display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 20px;
+    bottom:80px;
+    z-index: 101;
+    width: 480px;
+    height: 410px;
+    color: #7c898e;
+}
+#list .box-header {
+    width: 442px;
+    height: 50px;
+    padding: 0 19px;
+    background: #2a2e35;
+    font-size: 16px;
+    line-height: 50px;
+    overflow: hidden;
+    color: #86898e;
+    background-color: #2a2e35;
+}
+#list .box-header .action-box {
+    position: absolute;
+    right: 19px;
+    top: 0;
+    width: 75px;
+    height: 40px;
+    line-height: 40px;
+}
+#list .box-header .action-box .line {
+    float: left;
+    width: 1px;
+    height: 20px;
+    border-right:1px solid #F0F1F1 ;
+   	margin-top: 20px;
+   	margin-right: 15px;
+    opacity: .5;
+}
+#list .icon {
+    float: left;
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-top: 22px;
+    
+}
+.list-menu-icon-close {
+    background-position: -240px -96px;
+}
+#list .up,.down{
+	color: #CCD5DB;
+	cursor: pointer;
+}
+#list .del{
+	margin-right: 15px;
+	background-position: -240px -64px;
+	cursor: pointer;
+}
+#list .delBtn{
+	margin-top: 13px;
+}
+#list .box-list{
+	height: 360px;
+	width:100%;
+    background-color:#2f343b;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    zoom:1;
+}
+#list .box-list li{
+	height: 40px;
+	font: 14px/40px "微软雅黑";
+	color: #F0EFEB;
+	padding:0px 20px ;
+	cursor: pointer;
+}
+#list .box-list li span{
+	margin-right: 10px;
+}
+#list .box-list li.active {
+    background-color: #40444b;
+    border-bottom: 1px solid #40444b;
+}
+
+/* xc ↑ */
