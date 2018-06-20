@@ -31,7 +31,8 @@ img{
 }
 .songMain{
     position: absolute;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 840px;
     margin-top: 5%;
     z-index: 100;

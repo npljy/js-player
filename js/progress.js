@@ -31,7 +31,6 @@ window.onload = function () {
     var mode = document.querySelector(".mode");
     var modePanel = document.querySelector(".modePanel");
     var modeLis = Array.from(document.querySelectorAll(".modePanel li"));
-    var blurbg = document.querySelector(".blurbg");
     var blurMask = document.querySelector(".blurMask");
     var songbar = document.querySelector('.songBar');
     var dragBar = document.querySelector('.dragBar');
@@ -77,7 +76,7 @@ window.onload = function () {
     function info(idx) {
         document.title = "当前歌曲：" + data[idx]["songName"];
         myaudio.src = data[idx].songUrl;
-        blurbg.style.background = 'url(' + data[idx]["songPicture"] + ')';
+        blurbg.style.background = 'url(' + data[idx]["songPicture"] + ') no-repeat;';
         albumImg.src = data[idx]["songPicture"];
         playerImg.src = data[idx]["songPicture"];
         barName.innerText = data[idx]["songName"];
